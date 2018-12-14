@@ -65,7 +65,7 @@ public class App
     			System.out.println("Enter Number or Operations separately.");
     			System.out.println("Enter equal(=) to see the answer.");
     			System.out.println("Enter number whitout operations replace the old one.");
-    			System.out.println("To all availdable word. Enter help2");
+    			System.out.println("To see all availdable word. Enter help2");
     			System.out.println(PrintInt.g(n1));
     			op=-1;
     		}
