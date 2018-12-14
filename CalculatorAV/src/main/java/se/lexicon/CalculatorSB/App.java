@@ -33,6 +33,7 @@ public class App
     		}else if(isV==true){
     			op=opGet(input);
     			
+    			//Make counting wait when operation +,-,/,* is set.
     			if(op==-4||op>=1&&op<=4) {
     				wait=true;
     			}
