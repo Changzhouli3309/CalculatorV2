@@ -1,0 +1,221 @@
+package se.lexicon.CalculatorSB;
+
+import java.util.Scanner;
+
+public class App 
+{
+	private static Scanner scan= new Scanner(System.in);
+    public static void main( String[] args )
+    {
+		String input;
+		int op=-1;
+    	double n1=0,n2=0;
+		boolean run=true,isN=true,isV=true,wait=false;
+    	
+    	System.out.println("Welcome to Caculator!");
+    	System.out.println(PrintInt.g(n1));
+
+    	while(run) {
+			
+    		input=scan.nextLine();
+    		isN=isNumber(input);
+    		isV=isAvailable(input);
+    		if(isN==true) {
+    			n2=Double.parseDouble(input);
+    			wait=false;
+
+    		}else if(isV==true){
+    			op=opGet(input);
+    			if(op==-4||op>=1&&op<=4) {
+    				wait=true;
+    			}
+    			
+    		}else {
+    			System.out.println("Not avalidable enter.");
+    			System.out.println("Enter (help) to see help menu");
+    			System.out.println(PrintInt.g(n1));
+    		}
+    		
+    		if(!wait) {
+    			n1=count(op,n1,n2);
+    			if (op==5) {
+    				n2=n1;
+    			}
+    		}
+    		if(op==-4) {
+    			System.out.println("Enter Number or Operations separately.");
+    			System.out.println("Enter equal(=) to see the answer.");
+    			System.out.println("Enter number whitout operations replace the old one.");
+    			System.out.println(PrintInt.g(n1));
+    			op=-1;
+    		}
+    		
+    		if(op==-3) {
+    			run=false;
+    			System.out.println("Goodbye!");
+    		}
+    		if(op<=0||op==5) {
+    			op=-1;
+    		};
+    		
+
+    	}
+    	
+    }
+    
+    public static String helpM() {
+    	String s = "Enter Number or Operations separately and = to see answer.";
+    	return s;
+    }
+    
+    
+    
+    public static boolean isNumber(String s) {
+    	boolean re = true;
+    	
+    	try {
+    		Double.parseDouble(s);
+    		re = true;
+    	}catch(NumberFormatException e) {
+    		re=false;
+    	}
+		return re;
+    	
+    }
+    
+    public static boolean isAvailable(String s) {
+    	boolean re=true;
+    	String uppS=s.toUpperCase();
+    	switch (uppS) {
+    	case "+":
+    	case "ADDITION":
+    	case "ADD":
+    		
+    	case "-":
+    	case "SUBTRACTION":
+    		
+    	case "/":
+    	case "DIVISION":
+    		
+    	case "*":
+    	case "Multiplication":
+    	
+    	case "EQUAL":
+    	case "=":
+    	
+    	case "IN SQUARE":
+    	
+    	case "CLEAR":
+    	case "C":
+    		
+    	case "OFF":
+    	case "END":
+    	
+    	case "HELP":	
+    		re=true;
+    		break;
+    	default: re=false;
+    	}
+    	return re;
+    }
+    
+    public static int opGet(String s) {
+    	int re=0;
+    	String uppS=s.toUpperCase();
+    	switch (uppS) {
+
+    	case "HELP":
+    		re=-4;
+    		break;
+    	case "OFF":
+    	case "END":
+    		re=-3;
+    		break;
+
+    	case "C":
+    	case "CLEAR":
+    		re=-2;
+    		break;
+    	
+       	case "EQUAL":
+    	case "=":
+    		re=0;
+    		break;
+
+    	case "+":
+    	case "ADDITION":
+    	case "ADD":
+    		re=1;
+    		break;
+    		
+    	case "-":
+    	case "SUBTRACTION":
+    		re=2;
+    		break;
+    		
+    	case "*":
+    	case "Multiplication":
+    		re=3;
+    		break;	
+    		
+    	case "/":
+    	case "DIVISION":
+    		re=4;
+    		break;
+    			
+    	case "IN SQUARE":
+    		re=5;
+    		break;
+
+    	default: re=0;
+    	}
+    	return re;
+    }
+    
+    
+    public static double count(int op, double n1, double n2) {
+    	switch (op) {
+    	case -2:
+    		n1=0;
+    		System.out.println(PrintInt.g(n1));
+    		break;
+    		
+    	case -1:
+    		n1=n2;
+    		break;
+    		
+    	case 0://=
+    		System.out.println(PrintInt.g(n1));
+    		break;
+    		
+    	case 1://+
+    		n1+=n2;
+    		break;
+    		
+    	case 2://-
+    		n1-=n2;
+    		break;
+    		
+    	case 3://*
+    		n1*=n2;
+    		break;
+    		
+    	case 4:///
+    		if (n2==0) {
+    			System.out.println("Cannot division with 0.");
+    			n1=0;
+    			System.out.println(PrintInt.g(n1));
+    		}else {
+    			n1/=n2;
+    		}
+    		break;
+    	case 5:
+    		n1*=n1;
+    		System.out.println(PrintInt.g(n1));
+    		break;
+    	default:
+    		
+    	}
+    	return n1;
+    }
+}
