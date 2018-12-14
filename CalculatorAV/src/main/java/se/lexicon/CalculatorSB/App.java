@@ -85,7 +85,7 @@ public class App
     			op=-1;
     		}
     		
-    		// rest after Enter equal
+    		// wait after Enter equal
     		if(op<=0||op==5) {
     			op=-1;
     		};
