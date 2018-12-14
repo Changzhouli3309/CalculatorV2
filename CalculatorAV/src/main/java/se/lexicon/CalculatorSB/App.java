@@ -22,6 +22,7 @@ public class App
     	while(run) {
 			
     		input=scan.nextLine();
+    		// check the input is number or something else
     		isN=isNumber(input);
     		isV=isAvailable(input);
     		
@@ -54,7 +55,7 @@ public class App
     		if(op==-5) {
     			System.out.println("+,-,/,*,c");
     			System.out.println("Text no matter upper or lower case");
-    			System.out.println("ADDITION,ADD,SUBTRACTION,DIVISION,MULTIPLICATION");
+    			System.out.println("ADDITION,ADD,SUBTRACTION,DIVISION,MULTIPLICATION,MINUS");
     			System.out.println("EQUAL,IN SQUARE,CLEAR,OFF,END");
     			System.out.println(PrintInt.g(n1));
     			op=-1;
@@ -118,6 +119,7 @@ public class App
     		
     	case "-":
     	case "SUBTRACTION":
+    	case "MINUS":
     		
     	case "/":
     	case "DIVISION":
@@ -182,6 +184,7 @@ public class App
     		
     	case "-":
     	case "SUBTRACTION":
+    	case "MINUS":
     		re=2;
     		break;
     		
