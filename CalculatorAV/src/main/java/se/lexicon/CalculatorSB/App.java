@@ -76,6 +76,14 @@ public class App
     			System.out.println("Goodbye!");
     		}
     		
+    		//clear to 0
+    		if(op==-2) {
+    			n1=0;
+    			n2=0;
+    			System.out.println(PrintInt.g(n1));
+    			op=-1;
+    		}
+    		
     		// rest after Enter equal
     		if(op<=0||op==5) {
     			op=-1;
@@ -199,10 +207,6 @@ public class App
     // use the operation code number to do the counting
     public static double count(int op, double n1, double n2) {
     	switch (op) {
-    	case -2:
-    		n1=0;
-    		System.out.println(PrintInt.g(n1));
-    		break;
     		
     //replace the old number if not operation select
     	case -1:
