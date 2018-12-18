@@ -34,7 +34,7 @@ public class App
     			op=opGet(input);
     			
     			//Make counting wait when operation +,-,/,* is set.
-    			if(op==-4||op>=1&&op<=4) {
+    			if(op>0&&op<5) {
     				wait=true;
     			}
     			
